@@ -131,7 +131,13 @@ const Game = () => {
       <header className="game-header">
         <h1>Alert Finder</h1>
       </header>
-      
+
+      <div className="info-box">
+        <p>
+          Guess the location based on the counts of NWS weather alerts in 2024
+        </p>
+      </div>
+
       <div className="top-panel">
         {/* Left Panel: Minimal view if game not started, full panel if started */}
         <div className="left-panel">

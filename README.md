@@ -9,7 +9,7 @@ React + Vercel to host
 
 ## Some Observations about an AI driven development flow
 - A good amount of design/research work is still required even with an LLM doing all the programming
-    - I had to find the proper API used for getting the Alert events - for some reason o3 kept trying to use a nonexistent version of the https://mesonet.agron.iastate.edu/json/sbw_by_point.py?help endpoint
+    - I had to find the proper API used for getting the Alert events - for some reason o3 kept trying to use a nonexistent version of the https://mesonet.agron.iastate.edu/json/vtec_events_bypoint.py?help endpoint
     - I also had to create a file for mapping counties to their coordinates using https://www.weather.gov/gis/ZoneCounty
     - And had to design the flow (find random county -> use the lat/long -> query the mesonet api), o3 wanted to use another API call which seemed overkill
 - o3-mini-high was great at turning off "code" mode and helping brainstorm features or explain what it was doing before actually outputting the code
