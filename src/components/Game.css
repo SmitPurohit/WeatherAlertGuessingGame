@@ -1,0 +1,132 @@
+/* Game.css */
+
+/* Overall container */
+.game-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
+  }
+  
+  /* Center text for loading and start screens */
+  .center-text {
+    text-align: center;
+  }
+  
+  /* Header */
+  .game-header {
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+  
+  /* Top panel holds the left and right sections */
+  .top-panel {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+  }
+  
+  /* Left Panel: fixed width for controls */
+  .left-panel {
+    flex-basis: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+    background-color: #f0f0f0;
+    border-radius: 8px;
+  }
+  
+  /* Right Panel: map area */
+  .right-panel {
+    flex: 1;
+    text-align: center;
+  }
+  
+  /* Alerts Panel */
+  .alerts-panel {
+    margin-bottom: 1rem;
+  }
+  
+  /* Center Panel: Score and round info */
+  .center-panel {
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+  
+  /* Buttons Panel */
+  .buttons-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  /* Common button styling */
+  .button {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 4px;
+    background-color: #0070f3;
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  .button:hover {
+    background-color: #005bb5;
+  }
+  
+  /* Feedback styling */
+  .feedback {
+    margin-top: 0.5rem;
+    padding: 0.5rem;
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    text-align: center;
+  }
+  
+  /* Start screen additional styling */
+  .start-screen {
+    margin-top: 2rem;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 600px) {
+    .top-panel {
+      flex-direction: column;
+    }
+    .left-panel {
+      flex-basis: 100%;
+    }
+    .right-panel {
+      width: 100%;
+      margin-top: 1rem;
+    }
+    .button {
+      font-size: 0.9rem;
+      padding: 0.5rem;
+    }
+    .game-header h1 {
+      font-size: 1.5rem;
+    }
+  }
+  .share-container {
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .share-link {
+    text-decoration: none;
+    font-size: 0.9rem;
+    overflow-wrap: break-word;
+  }
+  
+  .share-link:hover {
+    text-decoration: underline;
+  }
+  
+  
