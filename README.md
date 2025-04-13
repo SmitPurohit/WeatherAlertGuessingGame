@@ -2,10 +2,16 @@
 
 A guessing game where you have to guess a location in the US based on the NWS alerts it received in 2024
 
-This website is an experiment with the recent trend of "Vibe Coding" i.e. where I let an AI do the majority of the work. Most of the code was generated with o3-mini-high, with some modifications by me.
+This website is an experiment with the recent trend of "Vibe Coding" i.e. where I let an AI do the majority of the work. 
 
 ## Stack
 React + Vercel to host
+
+## Model Used
+
+Mostly used o3-mini-high (did get bumped down to o3-mini for a bit)
+
+[Link to my chat](https://chatgpt.com/share/67fc4e55-e2ac-8001-801f-c03d48004b69)
 
 ## Some Observations about an AI driven development flow
 - A good amount of design/research work is still required even with an LLM doing all the programming
