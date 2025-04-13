@@ -1,70 +1,31 @@
-# Getting Started with Create React App
+# Weather Alerts Finder
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A guessing game where you have to guess a location in the US based on the NWS alerts it received in 2024
 
-## Available Scripts
+This website is an experiment with the recent trend of "Vibe Coding" i.e. where I let an AI do the majority of the work. Most of the code was generated with o3-mini-high, with some modifications by me.
 
-In the project directory, you can run:
+## Stack
+React + Vercel to host
 
-### `npm start`
+## Some Observations about an AI driven development flow
+- A good amount of design/research work is still required even with an LLM doing all the programming
+    - I had to find the proper API used for getting the Alert events - for some reason o3 kept trying to use a nonexistent version of the https://mesonet.agron.iastate.edu/json/sbw_by_point.py?help endpoint
+    - I also had to create a file for mapping counties to their coordinates using https://www.weather.gov/gis/ZoneCounty
+    - And had to design the flow (find random county -> use the lat/long -> query the mesonet api), o3 wanted to use another API call which seemed overkill
+- o3-mini-high was great at turning off "code" mode and helping brainstorm features or explain what it was doing before actually outputting the code
+- Initially the code was generated as the standard html/js/css
+    - This was interesting as I expected the first output to be based on a modern framework
+- Mixed results with helping me with environment issues
+- Usually very good with fixing error output
+- Test generation was quite good and even used principles such as mocking
+- Handholding is still required to get a more polished product
+    - Some Exampled:
+        - Multiple tries/prompts to get the Share/Copy Link flow right, with multiple instances of broken code outputted
+        - The "Are you sure you want to start a new game?" popup would show up on the first game because the variable gameOver was initialized to False
+        - The on-map pins would frequently be the main cause of bugs on a new feature added, sometimes took a couple prompts to fix
+        - Any reasonable feature (such as a final score or making buttons have the click cursor) required another prompt rather than being a natural part of code output
+- All the steps on how exactly to upload to GitHub and integrate with Vercel were given to me, very useful if the user is not as familiar with the web development flow
+- Would frequently update 1 file and forget to update the others
+- Amazing at changing the layout of the website as I told it to
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Overall, I feel this was a successful experiment. While this was a smaller scope project, I'm still impressed with the ability to generate an entire website just on English prompts. However, these LLMs are not perfect as evidenced by how often I had to tell it not to do something or fix an earlier code generation. And note that o3-mini-high never did anything I didn't tell it to do i.e. the prompts/ideas/workflow had to come from the human using the model. I'm still not convinced any *current* model can replace even a first-year Computer Science student but who knows where future development will take us. My main takeaway is that LLMs are a powerful tool to aid your development workflow if used correctly.
