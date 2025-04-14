@@ -7,6 +7,8 @@ This website is an experiment with the recent trend of "Vibe Coding" i.e. where 
 ## Stack
 React + Vercel to host
 
+https://weather-alerts-finder.vercel.app/
+
 ## Model Used
 
 Mostly used o3-mini-high (did get bumped down to o3-mini for a bit)
