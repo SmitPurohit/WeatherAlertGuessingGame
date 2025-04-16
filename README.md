@@ -11,7 +11,7 @@ https://weather-alerts-finder.vercel.app/
 
 ## Model Used
 
-Mostly used o3-mini-high (did get bumped down to o3-mini for a bit)
+Mostly used o3-mini-high (did get bumped down to o3-mini for a bit). I also did experiment with Claude 3.7 Sonnet, and you can see that in the chat where I used the output explanation of the site from Claude as a way to tell o3-mini-high exactly what I was looking for.
 
 [Link to my chat](https://chatgpt.com/share/67fc4e55-e2ac-8001-801f-c03d48004b69)
 

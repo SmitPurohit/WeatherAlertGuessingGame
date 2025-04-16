@@ -8,6 +8,30 @@ import './Game.css';
 
 const totalRounds = 5;
 
+// Helper function that returns a round's data, retrying if there are fewer than 5 alerts.
+const getRoundData = async () => {
+    let county, weatherData, sortedCounts;
+    do {
+      county = getRandomCounty();
+      weatherData = await getWeatherData(county.lat, county.lon);
+      const counts = {};
+      if (weatherData.events && Array.isArray(weatherData.events)) {
+        weatherData.events.forEach(event => {
+          const type = event.name || event.type;
+          counts[type] = (counts[type] || 0) + 1;
+        });
+      }
+      const sortedCountsAll = Object.entries(counts).sort((a, b) => b[1] - a[1]);
+      // Limit to top 10 alerts.
+      sortedCounts = sortedCountsAll.slice(0, 10);
+    } while (sortedCounts.length < 5);
+    return {
+      target: county,
+      alertCounts: sortedCounts
+    };
+  };
+  
+
 // Scoring function: max points = 1000, subtract 3 points per mile.
 const scoringFunction = (distanceInMiles) => {
   return Math.max(0, Math.round(1000 - 3 * distanceInMiles));
@@ -34,25 +58,11 @@ const Game = () => {
     setGameOver(false);
     setPendingGuess(null);
     const rounds = await Promise.all(
-      Array.from({ length: totalRounds }).map(async () => {
-        const county = getRandomCounty();
-        const weatherData = await getWeatherData(county.lat, county.lon);
-        const counts = {};
-        if (weatherData.events && Array.isArray(weatherData.events)) {
-          weatherData.events.forEach(event => {
-            const type = event.name || event.type;
-            counts[type] = (counts[type] || 0) + 1;
-          });
-        }
-        const sortedCounts = Object.entries(counts)
-          .sort((a, b) => b[1] - a[1])
-          .slice(0, 10);
-        return {
-          target: county,
-          alertCounts: sortedCounts
-        };
-      })
-    );
+        Array.from({ length: totalRounds }).map(async () => {
+          return await getRoundData();
+        })
+      );
+      
     setRoundsData(rounds);
     setLoading(false);
   };
